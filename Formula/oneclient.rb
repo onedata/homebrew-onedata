@@ -8,6 +8,7 @@ class Oneclient < Formula
   depends_on :macos => :sierra
 
   depends_on :osxfuse
+  depends_on "libtool" => :build
   depends_on "cmake" => :build
   depends_on "ninja" => :build
   depends_on "boost"
