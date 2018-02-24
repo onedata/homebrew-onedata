@@ -1,8 +1,8 @@
 class Oneclient < Formula
   desc "Installs Oneclient, the Command Line tool for Onedata platform"
   homepage "https://onedata.org"
-  url "https://github.com/onedata/oneclient.git", :branch => "develop", :revision => "de91282946e59a3d4fcf65abacd944eee6826c5e"
-  version "17.06.0-beta6-15-gde9128294"
+  url "https://github.com/onedata/oneclient.git", :branch => "release/18.02.0-beta1"
+  version "18.02.0-beta1"
   head "https://github.com/onedata/oneclient.git", :branch => "develop"
 
   depends_on :macos => :sierra
@@ -20,7 +20,7 @@ class Oneclient < Formula
   depends_on "poco"
   depends_on "double-conversion"
   depends_on "glog"
-  depends_on "folly"
+  depends_on "onedata/onedata/folly"
   depends_on "nss"
   depends_on "openssl"
   depends_on "libevent"
@@ -28,7 +28,6 @@ class Oneclient < Formula
   depends_on "aws-sdk-cpp"
   depends_on "onedata/onedata/swift-cpp-sdk"
   depends_on "onedata/onedata/libiberty"
-  depends_on "onedata/onedata/glusterfs-api"
 
   def install
     # Setup environment variables for the build
@@ -41,7 +40,7 @@ class Oneclient < Formula
       WITH_CEPH=OFF
       WITH_S3=ON
       WITH_SWIFT=ON
-      WITH_GLUSTERFS=ON
+      WITH_GLUSTERFS=OFF
       OPENSSL_ROOT_DIR=/usr/local/opt/openssl
       OPENSSL_LIBRARIES=/usr/local/opt/openssl/lib
     ]
